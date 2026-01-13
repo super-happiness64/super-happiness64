@@ -256,6 +256,45 @@ checkboxes.forEach(cb => {
         : 'none';
     });
   });
+
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  let cart = 0;
+
+  // Add to Cart buttons
+  const addButtons = document.querySelectorAll('.add-to-cart');
+  addButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      cart++;
+      alert('Item added to the cart');
+    });
+  });
+
+  // Clear Cart button
+  const clearButton = document.querySelector('#clear-cart'); // make sure you add id="clear-cart"
+  if (clearButton) {
+    clearButton.addEventListener('click', () => {
+      if (cart > 0) {
+        cart = 0;
+        alert('Cart cleared');
+      } else {
+        alert('No items to clear.');
+      }
+    });
+  }
+
+  // Process Order button
+  const orderButton = document.querySelector('#process-order'); // add id="process-order"
+  if (orderButton) {
+    orderButton.addEventListener('click', () => {
+      if (cart > 0) {
+        alert('Thank you for your order');
+        cart = 0;
+      } else {
+        alert('Cart is empty.');
+      }
+    });
+  }
 });
 </script>
 
