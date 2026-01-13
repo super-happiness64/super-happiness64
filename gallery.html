@@ -9,23 +9,16 @@
 
 <body>
 <nav class="navbar">
-  <div class="logo">
-    <a href="index.html">
-      <img src="bloomvalley2.png" alt="Bloom Valley Nursery">
-    </a>
-  </div>
-
-  <!-- Hamburger (mobile only) -->
-  <button class="hamburger" aria-label="Menu">
-    ☰
-  </button>
-
-  <!-- Nav links -->
-  <ul class="nav-links">
+  <ul>
+    <li class="logo">
+      <a href="#home">
+        <img src="bloomvalley2.png" alt="Bloom Valley Nursery">
+      </a>
+    </li>
     <li><a href="index.html">Home</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="custom.html">Contact</a></li>
+    <li><a href="more.html">Contact</a></li>
 
     <li class="search-item">
       <form class="search-bar" action="/search">
@@ -36,9 +29,9 @@
       </form>
     </li>
 
-    <li>
-      <a href="#cart" class="view-cart-nav">View Cart</a>
-    </li>
+  <li class="nav-right">
+    <a href="#cart" class="view-cart-nav">View Cart</a>
+  </li>
   </ul>
 </nav>
 
@@ -224,22 +217,14 @@
     </div>
 
     <ul class="footer-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="more.html">Contact</a></li>
       <li><a href="#privacy">Privacy Policy</a></li>
     </ul>
   </div>
 </footer>
 <script>
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
-
-  hamburger.addEventListener('click', () => {
-    navLinks.style.display =
-      navLinks.style.display === 'flex' ? 'none' : 'flex';
-  });
-  
 const checkboxes = document.querySelectorAll('.filter-sidebar input');
 const cards = document.querySelectorAll('.card');
 
@@ -256,45 +241,6 @@ checkboxes.forEach(cb => {
         : 'none';
     });
   });
-
-  <script>
-document.addEventListener('DOMContentLoaded', () => {
-  let cart = 0;
-
-  // Add to Cart buttons
-  const addButtons = document.querySelectorAll('.add-to-cart');
-  addButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      cart++;
-      alert('Item added to the cart');
-    });
-  });
-
-  // Clear Cart button
-  const clearButton = document.querySelector('#clear-cart'); // make sure you add id="clear-cart"
-  if (clearButton) {
-    clearButton.addEventListener('click', () => {
-      if (cart > 0) {
-        cart = 0;
-        alert('Cart cleared');
-      } else {
-        alert('No items to clear.');
-      }
-    });
-  }
-
-  // Process Order button
-  const orderButton = document.querySelector('#process-order'); // add id="process-order"
-  if (orderButton) {
-    orderButton.addEventListener('click', () => {
-      if (cart > 0) {
-        alert('Thank you for your order');
-        cart = 0;
-      } else {
-        alert('Cart is empty.');
-      }
-    });
-  }
 });
 </script>
 
