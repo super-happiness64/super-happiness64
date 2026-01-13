@@ -95,7 +95,7 @@ body {
   background-color: white;
   padding: 20px;
   text-align: center;
-  border-top: 3px solid var(--primary-red);
+  border-top: 2px solid #79512e;
 }
 .promo-deal {
   display: block;
@@ -103,27 +103,29 @@ body {
   font-weight: 900;
   color: var(--primary-red);
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 .promo-item {
   display: block;
   font-size: 18px;
   font-weight: bold;
-  color: #333;
+  color: #000;
 }
 
 /* Products Grid */
 .products-grid {
+  justify-content: center;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 30px;
   width: 90%;
   margin: 40px auto;
 }
+
 .product-item {
   text-align: center;
   background-color: #ffffff;
-  border: 1px solid var(--border-brown);
+  border: 2px solid #79512e;
   padding: 15px;
 }
 .product-item img {
@@ -148,8 +150,8 @@ body {
 }
 .review-item {
   padding: 20px;
-  background-color: var(--review-bg);
-  border: 2px solid var(--border-brown);
+  background-color: #fff;
+  border: 2px solid #79512e;
   text-align: center;
 }
 .review-item img {
@@ -176,41 +178,281 @@ body {
 
 /* 3. GALLERY & PRODUCT CARDS (Index & Gallery Pages) */
 .gallery { display: flex; flex-wrap: wrap; justify-content: center; }
-.gallery-item { margin: 20px; border: 1px solid var(--border-brown); width: 340px; position: relative; }
-.gallery-item img { width: 100%; object-fit: cover; }
+.gallery-item { margin: 20px; border: 2px solid; width: 380px; position: relative; }
+.gallery-item img {vertical-align: middle; width: 100%; height: 400px; object-fit: cover; }
 
 .card { width: 320px; border: 1px solid var(--text-dark); padding: 20px; background: #ffffff; transition: .4s ease; }
-.card-content { padding: 15px 20px; text-align: center; color: var(--text-dark); }
-.card .card-image img { width: 100%; height: 280px; object-fit: cover; }
+.card-content { padding: 15px 20px; text-align: left; color: var(--text-dark); }
+.card .card-image img { width: 100%; height: 100%; object-fit: cover; }
 .card .card-content h3 { text-align: left; font-size: 22px; }
 .card .card-content button { cursor: pointer; color: #fff; width: 50%; height: 30px; background: linear-gradient(45deg, var(--secondary-red), var(--primary-red)); }
 
 .sale-badge { position: absolute; top: 15px; left: 15px; background-color: var(--primary-red); color: white; padding: 8px 14px; font-weight: bold; z-index: 2; border-radius: 4px; }
 
 /* 4. SHOP & SIDEBAR (Gallery Page) */
-.shop-layout { display: grid; grid-template-columns: 240px 1fr; gap: 30px; padding: 40px; }
-.filter-sidebar { background: white; border: 1px solid #ccc; padding: 20px; height: fit-content; }
-.filter-sidebar h3 { color: var(--primary-red); margin-bottom: 15px; }
+.shop-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 40px;
+  padding: 0 40px 40px 40px;
+  align-items: start;
+}
 
-.view-cart { background-color: var(--olive); color: white; padding: 10px 20px; border: none; font-weight: bold; cursor: pointer; }
-.view-cart:hover { background-color: #45a049; }
+.filter-sidebar { 
+  background: white; 
+  border: 1px solid #ccc; 
+  padding: 25px; 
+  position: sticky; 
+  top: 20px; 
+}
+.filter-sidebar h3 { color: var(--primary-red); margin-top: 0; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
 
+.filter-group { margin-bottom: 30px; }
+.filter-group h4 { font-size: 14px; text-transform: uppercase; color: #666; margin-bottom: 15px; }
+
+.filter-group label { 
+  display: flex; 
+  align-items: center; 
+  margin-bottom: 12px; 
+  cursor: pointer; 
+  font-size: 15px;
+}
+.filter-group input { margin-right: 12px; width: 18px; height: 18px; cursor: pointer; }
+
+/* 4. PRODUCT GRID & CARDS (HUGGING BORDERS) */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid var(--border-brown);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  overflow: hidden; /* Ensures image doesn't overlap rounded corners */
+}
+
+.card-image img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block; /* FIX: Removes the gap under the image */
+}
+
+.card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-content h3 { margin: 0 0 10px 0; color: var(--primary-red); }
+.card-content p { font-size: 14px; color: #555; line-height: 1.4; flex-grow: 1; }
+
+.card-footer {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price { font-weight: bold; color: var(--text-dark); }
+.add-to-cart {
+  background: var(--primary-red);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.add-to-cart:hover { background: var(--secondary-red); }
+
+/* (Navbar and Footer styles would go here as they were) */
 /* 5. ABOUT & CONTACT (About Page) */
+
+/* Opening Hours Section - Red Strip */
+.hours {
+  background-color: #9d352e;
+  color: white;             /* Makes the text readable on red */
+  text-align: center;
+  padding: 40px 20px;       /* Adds space inside the strip */
+  margin: 40px 0;           /* Adds space outside the strip */
+  width: 100%;              /* Ensures it spans across */
+}
+
+.hours h2 {
+  margin-top: 0;
+  color: white;             /* Overrides any global dark heading colors */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.hours ul {
+  list-style: none;         /* Removes the bullet points */
+  padding: 0;
+  margin: 0;
+}
+
+.hours li {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
 .about-section { display: flex; align-items: center; gap: 40px; padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
 .about-image, .about-text { flex: 1; }
 .about-image img { width: 100%; height: auto; }
 
-.contact-section { background-color: var(--secondary-red); padding: 60px 20px; color: white; text-align: center; }
+
+/* Contact Form "Send" Button - Small Red Rectangle */
+
+/* Ensure the form container allows the button to stay small */
+
+.contact-section { background-color: var(--secondary-red); padding: 60px 70px; color: white; text-align: center; }
 .contact-form .form-group { margin-bottom: 20px; text-align: left; }
-.contact-form input, .contact-form textarea, .contact-form select { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; margin-top: 5px; }
+.contact-form input, .contact-form textarea, .contact-form select { width: 100%; padding: 10px; border: 1px solid #ccc; margin-top: 5px; }
+
+.contact-form button {
+  background-color: var(--primary-red);
+  color: white;
+  border: none;
+  padding: 10px 30px; 
+  width: auto; 
+  font-weight: bold;
+  cursor: pointer;
+}
 
 /* 6. EVENTS & CALENDAR (Custom/Events Page) */
-.event-card { display: flex; gap: 20px; background: white; padding: 20px; margin: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
-.event-image img { width: 200px; height: 150px; object-fit: cover; }
 
-.calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; padding: 20px; min-width: 1000px; }
-.day { height: 55px; border: 1px solid #ccc; background: #fafdfa; padding: 6px; text-align: right; }
-.day.event { background: #EBE9A2; border-color: var(--olive); cursor: pointer; }
+.custom-page-grid {
+  display: grid;
+  /* Specifically ask for 3 columns */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 30px;
+  width: 90%;
+  max-width: 1200px;
+  /* This centers the whole block on the page */
+  margin: 0 auto; 
+}
+
+/* Ensure the cards don't have a fixed width that breaks the row */
+.custom-page-grid .card {
+  width: 100%;
+}
+
+
+
+.events-list {
+    display: flex;
+    flex-direction: column;  /* stack cards vertically */
+    gap: 20px;               /* space between cards */
+}
+
+.event-card {
+    display: flex;
+    gap: 20px;              /* space between image and text */
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px;
+    align-items: flex-start;
+    border: 1px solid black;
+}
+
+.event-image img {
+    width: 200px;           /* fixed width for image */
+    height: 150px;          /* fixed height */
+    object-fit: cover;      /* keeps proportions, crops if necessary */
+}
+
+.event-details {
+    flex: 1;                /* text takes remaining space */
+}
+
+
+.calendar-wrapper {
+  text-align: center;
+}
+
+.calendar {
+  margin-top: 10px;
+  display: inline-block;
+}
+
+/* Header + buttons */
+.calendar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+button {
+  padding: 6px 10px;
+  border: 1px solid #79512e;
+  background: #e0d2bd;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #4B4A1E;
+}
+
+/* Grid */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  padding: 20px;
+  min-width: 1000px;
+}
+
+.day-name {
+  font-weight: bold;
+  text-align: center;
+}
+
+.day {
+  position: relative;
+  height: 55px;
+  border: 1px solid #ccc;
+  text-align: right;
+  padding: 6px;
+  background: #fafdfa;
+}
+
+.day.event {
+  background: #EBE9A2;
+  border-color: #4b4a1e;
+  cursor: pointer;
+}
+
+/* Tooltip */
+.day.event:hover::after {
+  content: attr(data-event);
+  position: absolute;
+  left: 50%;
+  top: -8px;
+  transform: translate(-50%, -100%);
+  background: #4B4A1E;
+  color: white;
+  padding: 8px 10px;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.day.event:hover::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -8px;
+  transform: translate(-50%, -50%);
+  border: 8px solid transparent;
+  border-top-color: #9d352e;
+}
 
 /* 7. RESPONSIVE QUERIES */
 @media (max-width: 768px) {
