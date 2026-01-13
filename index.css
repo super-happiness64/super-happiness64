@@ -349,3 +349,10 @@ div.gallery-item div.desc {
   height: 30px;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
+
+/* Media query for screens up to 600px wide (e.g., mobile phones) */
+@media screen and (max-width: 600px) {
+  .container {
+    flex-direction: column; /* Stack columns vertically on mobile */
+  }
+}
