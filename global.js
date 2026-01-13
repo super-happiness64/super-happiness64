@@ -47,12 +47,16 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
     });
 });
 
-// Clear Cart
-const clearBtn = document.querySelector('.clear-cart-btn'); // Ensure your button has this class
+// Function to wipe cart
+function wipeCart() {
+    sessionStorage.removeItem('nurseryCart');
+}
+
+// Clear Cart Button
 if (clearBtn) {
     clearBtn.addEventListener('click', function() {
-        if (cartItems > 0) {
-            cartItems = 0;
+        if (sessionStorage.getItem('nurseryCart')) {
+            wipeCart();
             alert("Cart cleared");
         } else {
             alert("No items to clear.");
@@ -60,12 +64,11 @@ if (clearBtn) {
     });
 }
 
-// Process Order
-const processBtn = document.querySelector('.process-order-btn'); // Ensure your button has this class
+// Process Order Button
 if (processBtn) {
     processBtn.addEventListener('click', function() {
-        if (cartItems > 0) {
-            cartItems = 0; // Optional: Reset cart after order
+        if (sessionStorage.getItem('nurseryCart')) {
+            wipeCart();
             alert("Thank you for your order");
         } else {
             alert("Cart is empty.");
