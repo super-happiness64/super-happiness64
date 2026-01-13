@@ -353,12 +353,17 @@ div.gallery-item div.desc {
   height: 30px;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
-
-/* MOBILE / SMALL SCREEN STYLES */
-@media (max-width: 768px) {
   
 /* MOBILE NAVBAR */
 @media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column; /* stack items vertically */
+  }
+  .search-item {
+    display: block;
+    margin: 10px 0;
+  }
+}
 
   .navbar {
     display: flex;
