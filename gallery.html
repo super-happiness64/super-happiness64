@@ -15,10 +15,10 @@
         <img src="bloomvalley2.png" alt="Bloom Valley Nursery">
       </a>
     </li>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="more.html">More</a></li>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
 
     <li class="search-item">
       <form class="search-bar" action="/search">
@@ -29,220 +29,113 @@
       </form>
     </li>
 
-  <li class="nav-right">
-    <a href="#cart" class="view-cart-nav">View Cart</a>
-  </li>
+    <li class="nav-right">
+      <a href="#cart" class="view-cart-nav">View Cart</a>
+    </li>
   </ul>
 </nav>
 
-<br>
-<br>
-<div class="banner">
+<header class="banner">
   <h1>Our Recommended Products</h1>
-</div>
+</header>
+
+<br>
 <br>
 
-<!-- START GALLERY -->
-<div class="shop-layout">
+<main class="shop-layout">
 
-  <!-- FILTER SIDEBAR -->
-  <aside class="filter-sidebar">
-    <h3>Filter By</h3>
+<aside class="filter-sidebar">
+  <h3>Filters By</h3>
+  
+  <div class="filter-group cart-controls">
+    <h4>My Cart</h4>
+    <button class="clear-cart-btn">Clear Cart</button>
+    <button class="process-order-btn">Process Order</button>
+  </div>
+    <div class="filter-group">
+      <h4>Categories</h4>
+      <label>
+        <input type="checkbox" value="trees" checked> Trees
+      </label>
+      <label>
+        <input type="checkbox" value="houseplants" checked> Houseplants
+      </label>
+      <label>
+        <input type="checkbox" value="equipment" checked> Equipment
+      </label>
+    </div>
+    
+    </aside>
 
-    <label>
-      <input type="checkbox" value="trees" checked>
-      Trees
-    </label>
-
-    <label>
-      <input type="checkbox" value="equipment" checked>
-      Equipment
-    </label>
-
-    <label>
-      <input type="checkbox" value="houseplants" checked>
-      Houseplants
-    </label>
-  </aside>
-
-  <!-- PRODUCTS -->
   <div class="products">
 
-  <div class="card" data-category="trees">
-    <div class="card-image">
-      <img src="Client1_AppleTree.png" alt="Tree">
-    </div>
-    <div class="card-content">
-      <h3>Apple Tree</h3>
-      <p>These shade trees are adaptable to most soils, but prefer a somewhat moist but well-drained soil.</p>
-      <div class="card-footer">
-        <span class="price">$20 - $30</span>
-        <button class="add-to-cart">Add to Cart</button>
+    <div class="card" data-category="trees">
+      <div class="card-image">
+        <img src="Client1_AppleTree.png" alt="Apple Tree">
+      </div>
+      <div class="card-content">
+        <h3>Apple Tree</h3>
+        <p>These shade trees are adaptable to most soils, but prefer a somewhat moist but well-drained soil.</p>
+        <div class="card-footer">
+          <span class="price">$20 - $30</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="card" data-category="trees">
-    <div class="card-image">
-      <img src="Client1_MapleTree.png" alt="Tree">
-    </div>
-    <div class="card-content">
-      <h3>Maple Tree</h3>
-      <p>These shade trees are adaptable to most soils, but prefer a somewhat moist but well-drained soil.</p>
-      <div class="card-footer">
-        <span class="price">$20 - $30</span>
-        <button class="add-to-cart">Add to Cart</button>
+    <div class="card" data-category="trees">
+      <div class="card-image">
+        <img src="Client1_MapleTree.png" alt="Maple Tree">
+      </div>
+      <div class="card-content">
+        <h3>Maple Tree</h3>
+        <p>These shade trees are adaptable to most soils, but prefer a somewhat moist but well-drained soil.</p>
+        <div class="card-footer">
+          <span class="price">$20 - $30</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="card" data-category="trees">
-    <div class="card-image">
-      <img src="Client1_BirchTree.png" alt="Tree">
-    </div>
-    <div class="card-content">
-      <h3>Birch Tree</h3>
-      <p>These shade trees are adaptable to most soils, but prefer a somewhat moist but well-drained soil.</p>
-      <div class="card-footer">
-        <span class="price">$20 - $30</span>
-        <button class="add-to-cart">Add to Cart</button>
-      </div>
-    </div>
-  </div>
-  
-   <div class="card" data-category="equipment">
-    <div class="card-image">
-      <img src="Client1_PottingSoil.png" alt="Equipment">
-    </div>
-    <div class="card-content">
-      <h3>Potting Soil</h3>
-      <p>These shade trees are adaptable to most soils, but prefer a somewhat moist but well-drained soil.</p>
-      <div class="card-footer">
-        <span class="price">$20 - $30</span>
-        <button class="add-to-cart">Add to Cart</button>
-      </div>
-    </div>
-  </div>
-  
     <div class="card" data-category="equipment">
-    <div class="card-image">
-      <img src="Client1_WateringCan.png" alt="Equipment">
-    </div>
-    <div class="card-content">
-      <h3>Watering Can</h3>
-      <p>These shade trees are adaptable to most soils, but prefer a somewhat moist but well-drained soil.</p>
-      <div class="card-footer">
-        <span class="price">$20 - $30</span>
-        <button class="add-to-cart">Add to Cart</button>
+      <div class="card-image">
+        <img src="Client1_PottingSoil.png" alt="Potting Soil">
+      </div>
+      <div class="card-content">
+        <h3>Potting Soil</h3>
+        <p>Premium nutrient-rich soil perfect for all your indoor and outdoor potting needs.</p>
+        <div class="card-footer">
+          <span class="price">$20 - $30</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
       </div>
     </div>
-  </div>
-  
-  <div class="card" data-category="equipment">
-    <div class="card-image">
-      <img src="Client1_BirdHouse.png" alt="Equipment">
-    </div>
-    <div class="card-content">
-      <h3>Birdhouse</h3>
-      <p>These shade trees are adaptable to most soils, but prefer a somewhat moist but well-drained soil.</p>
-      <div class="card-footer">
-        <span class="price">$20 - $30</span>
-        <button class="add-to-cart">Add to Cart</button>
-      </div>
-    </div>
-  </div>
-  
-    <div class="card" data-category="houseplants">
-    <div class="card-image">
-      <img src="Client1_AloePlant.png" alt="Houseplant">
-    </div>
-    <div class="card-content">
-      <h3>Aloe Plant</h3>
-      <p>These shade trees are adaptable to most soils, but prefer a somewhat moist but well-drained soil.</p>
-      <div class="card-footer">
-        <span class="price">$20 - $30</span>
-        <button class="add-to-cart">Add to Cart</button>
-      </div>
-    </div>
-  </div>
-  
-      <div class="card" data-category="houseplants">
-    <div class="card-image">
-      <img src="Client1_StringofPearls.png" alt="Houseplant">
-    </div>
-    <div class="card-content">
-      <h3>String of Pearls</h3>
-      <p>These shade trees are adaptable to most soils, but prefer a somewhat moist but well-drained soil.</p>
-      <div class="card-footer">
-        <span class="price">$20 - $30</span>
-        <button class="add-to-cart">Add to Cart</button>
-      </div>
-    </div>
-  </div>
 
-  <div class="card" data-category="houseplants">
-    <div class="card-image">
-      <img src="Client1_SpiderPlant.png" alt="Houseplant">
     </div>
-    <div class="card-content">
-      <h3>Spider Plant</h3>
-      <p>These shade trees are adaptable to most soils, but prefer a somewhat moist but well-drained soil.</p>
-      <div class="card-footer">
-        <span class="price">$20 - $30</span>
-        <button class="add-to-cart">Add to Cart</button>
-      </div>
-    </div>
-  </div>
- </div>
-</div>
-<!-- END GALLERY -->
-
+</main>
 <footer class="site-footer">
   <div class="footer-content">
-
     <img src="bloomvalley3.png" alt="Bloom Valley Logo" class="footer-logo">
-
     <div class="newsletter">
       <form class="newsletter-form">
         <input type="email" placeholder="Subscribe to our newsletter!" required>
         <button type="submit">Subscribe</button>
       </form>
     </div>
-
     <div class="footer-social">
       <a href="#"><img src="facebook.png" alt="Facebook"></a>
       <a href="#"><img src="instagram.png" alt="Instagram"></a>
       <a href="#"><img src="twitter.png" alt="Twitter"></a>
-      <a href="#"><img src="tiktok.png" alt="TikTok"></a>
     </div>
-
     <ul class="footer-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="more.html">Contact</a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#privacy">Privacy Policy</a></li>
     </ul>
   </div>
 </footer>
-<script>
-const checkboxes = document.querySelectorAll('.filter-sidebar input');
-const cards = document.querySelectorAll('.card');
 
-checkboxes.forEach(cb => {
-  cb.addEventListener('change', () => {
-    const activeCategories = Array.from(checkboxes)
-      .filter(c => c.checked)
-      .map(c => c.value);
-
-    cards.forEach(card => {
-      const category = card.dataset.category;
-      card.style.display = activeCategories.includes(category)
-        ? 'block'
-        : 'none';
-    });
-  });
-});
-</script>
+<script src="global.js"></script>
 
 </body>
 </html>
