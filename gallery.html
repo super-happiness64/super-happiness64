@@ -29,8 +29,26 @@
       </form>
     </li>
 
-    <li class="nav-right">
-      <a href="#cart" class="view-cart-nav">View Cart</a>
+      <li class="nav-right">
+    <a href="#" id="openModalLink">View Cart</a>
+</li>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Your Shopping Cart</h2>
+        <hr>
+        
+        <div id="cartItemsList">
+            <p>Your cart is empty.</p>
+        </div>
+
+        <div class="modal-buttons" style="margin-top: 20px;">
+            <button class="clear-cart-btn">Clear Cart</button>
+            <button class="process-order-btn">Process Order</button>
+        </div>
+    </div>
+</div>
     </li>
   </ul>
 </nav>
