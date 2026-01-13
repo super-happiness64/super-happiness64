@@ -200,7 +200,7 @@
   </div>
 </footer>
 
-<!-- HAMBURGER SCRIPT -->
+<!-- SCRIPT -->
 <script>
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('nav-links');
@@ -208,6 +208,19 @@ const navLinks = document.getElementById('nav-links');
 hamburger.addEventListener('click', () => {
   navLinks.style.display =
     navLinks.style.display === 'flex' ? 'none' : 'flex';
+});
+  
+  
+document.addEventListener('DOMContentLoaded', () => {
+  const newsletterForm = document.querySelector('.newsletter-form');
+
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault(); // stop actual form submission
+      alert('Thank you for subscribing.');
+      newsletterForm.reset(); // clears the input
+    });
+  }
 });
 </script>
 
