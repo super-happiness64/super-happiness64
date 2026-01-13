@@ -1,71 +1,110 @@
+// --- 1. FILTER LOGIC ---
 const checkboxes = document.querySelectorAll('.filter-sidebar input');
 const cards = document.querySelectorAll('.card');
 
 checkboxes.forEach(cb => {
   cb.addEventListener('change', () => {
-    const activeCategories = Array.from(checkboxes)
-      .filter(c => c.checked)
-      .map(c => c.value);
-
+    const activeCategories = Array.from(checkboxes).filter(c => c.checked).map(c => c.value);
     cards.forEach(card => {
       const category = card.dataset.category;
-      // Using 'flex' instead of 'block' to keep your card styling intact
       card.style.display = activeCategories.includes(category) ? 'flex' : 'none';
     });
   });
 });
 
-// Footer Subscribe Alert
-document.querySelectorAll('.newsletter-form').forEach(form => {
-    form.addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevents page from reloading
-        alert("Thank you for subscribing.");
-        this.reset(); // Clears the email input
-    });
-});
+// --- 2. MODAL RENDER LOGIC ---
+function renderCartItems() {
+    const listContainer = document.getElementById('cartItemsList');
+    const cart = JSON.parse(sessionStorage.getItem('nurseryCart')) || [];
+    
+    if (cart.length === 0) {
+        listContainer.innerHTML = "<p>Your cart is empty.</p>";
+    } else {
+        listContainer.innerHTML = cart.map(item => `
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:5px;">
+                <span>${item.name}</span>
+                <span>${item.price}</span>
+            </div>
+        `).join('');
+    }
+}
 
-let cartItems = 0; // Tracks if the cart is empty or not
+// --- 3. MODAL OPEN/CLOSE ---
+const openBtn = document.getElementById('openModalLink');
+if (openBtn) {
+    openBtn.onclick = function(e) {
+        e.preventDefault();
+        renderCartItems(); 
+        document.getElementById('myModal').classList.add('show-modal');
+    };
+}
 
-// Add to Cart
+const closeBtn = document.querySelector('.close');
+if (closeBtn) {
+    closeBtn.onclick = function() {
+        document.getElementById('myModal').classList.remove('show-modal');
+    };
+}
+
+// --- 4. ADD TO CART (SAVING TO STORAGE) ---
 document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', function() {
-        cartItems++;
-        alert("Item added to the cart");
+        // Find the specific card
+        const card = this.closest('.card');
+        const plantName = card.querySelector('h3').innerText;
+        const plantPrice = card.querySelector('.price').innerText;
+
+        // Get current storage, add item, and save back
+        let cart = JSON.parse(sessionStorage.getItem('nurseryCart')) || [];
+        cart.push({ name: plantName, price: plantPrice });
+        sessionStorage.setItem('nurseryCart', JSON.stringify(cart));
+        
+        alert(plantName + " added to the cart");
     });
 });
 
-// Clear Cart
-const clearBtn = document.querySelector('.clear-cart-btn'); // Ensure your button has this class
-if (clearBtn) {
-    clearBtn.addEventListener('click', function() {
-        if (cartItems > 0) {
-            cartItems = 0;
-            alert("Cart cleared");
+// --- 5. CLEAR/PROCESS LOGIC ---
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('clear-cart-btn')) {
+        sessionStorage.removeItem('nurseryCart');
+        renderCartItems();
+        alert("Cart cleared");
+    }
+    if (e.target.classList.contains('process-order-btn')) {
+        if (sessionStorage.getItem('nurseryCart')) {
+            sessionStorage.removeItem('nurseryCart');
+            renderCartItems();
+            alert("Thank you for your order!");
+            document.getElementById('myModal').classList.remove('show-modal');
         } else {
-            alert("No items to clear.");
+            alert("Your cart is empty!");
         }
-    });
-}
+    }
+});
 
-// Process Order
-const processBtn = document.querySelector('.process-order-btn'); // Ensure your button has this class
-if (processBtn) {
-    processBtn.addEventListener('click', function() {
-        if (cartItems > 0) {
-            cartItems = 0; // Optional: Reset cart after order
-            alert("Thank you for your order");
-        } else {
-            alert("Cart is empty.");
-        }
+// --- 6. FORMS & ALERTS ---
+// Footer Subscribe
+document.querySelectorAll('.newsletter-form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert("Thank you for subscribing.");
+        this.reset();
     });
-}
+});
 
-// Contact Form Alert
-const contactForm = document.querySelector('.contact-form');
+// Contact Form (LocalStorage Requirement)
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        alert("Thank you for your message");
+        
+        // Save to LocalStorage
+        const customerData = {
+            email: document.getElementById('email').value,
+            comment: document.getElementById('comment').value
+        };
+        localStorage.setItem('customerProfile', JSON.stringify(customerData));
+
+        alert("Thank you for your message. Your info has been saved!");
         this.reset();
     });
 }
