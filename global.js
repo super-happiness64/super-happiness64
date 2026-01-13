@@ -93,19 +93,28 @@ document.querySelectorAll('.newsletter-form').forEach(form => {
 });
 
 // Contact Form (LocalStorage Requirement)
+// Contact Form (LocalStorage Requirement)
+const contactForm = document.querySelector('.contact-form'); // Ensure your form has this class
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+        e.preventDefault(); // Stop the page from reloading
         
-        // Save to LocalStorage
+        // 1. Gather the data
         const customerData = {
-            email: document.getElementById('email').value,
-            comment: document.getElementById('comment').value
+            email: document.getElementById('email')?.value || "No Email",
+            phone: document.getElementById('phone')?.value || "No Phone",
+            orderInfo: document.getElementById('custom-option')?.value || "Standard",
+            comment: document.getElementById('comment')?.value || ""
         };
+
+        // 2. Save to LocalStorage (Permanent memory)
         localStorage.setItem('customerProfile', JSON.stringify(customerData));
 
-        alert("Thank you for your message. Your info has been saved!");
-        this.reset();
+        // 3. Confirm with an alert (This is what you're looking for!)
+        alert("Thank you for your message. Your information has been saved!");
+        
+        console.log("Saved to LocalStorage:", customerData);
+        this.reset(); // Clears the form
     });
 }
 
