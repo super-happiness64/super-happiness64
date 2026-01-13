@@ -353,22 +353,51 @@ div.gallery-item div.desc {
 /* MOBILE / SMALL SCREEN STYLES */
 @media (max-width: 768px) {
   
-  /* Navbar stacks vertically */
-  .navbar ul {
-    flex-direction: column;
-    align-items: flex-start;
+/* MOBILE NAVBAR */
+@media (max-width: 768px) {
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
   }
 
-  .navbar li {
-    margin: 5px 0;
+  .nav-links {
+    display: none;           /* hide links by default */
+    flex-direction: column;  /* vertical menu when shown */
+    width: 100%;
+    background-color: #790d1d;
+    position: absolute;
+    top: 60px;               /* below the navbar */
+    left: 0;
+    padding: 10px 0;
   }
 
-  /* Search bar full width */
+  .nav-links li {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .nav-links li a {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .hamburger {
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: block;
+  }
+}
   .search-bar {
     width: 100%;
   }
-
-  /* Gallery / products stack in one column */
+  
   .products-grid {
     grid-template-columns: 1fr;
     gap: 20px;
