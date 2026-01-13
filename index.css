@@ -356,12 +356,9 @@ div.gallery-item div.desc {
   
 /* MOBILE NAVBAR */
 @media (max-width: 768px) {
-  .navbar ul {
-    flex-direction: column; /* stack items vertically */
-  }
-  .search-item {
-    display: block;
-    margin: 10px 0;
+  .search-bar input[type="text"] {
+    width: 100%;
+    max-width: 100%;
   }
 }
 
