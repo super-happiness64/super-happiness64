@@ -33,19 +33,16 @@ body {
 }
 
 .navbar ul {
-  list-style: none;
-  display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
-.navbar li { margin-right: 20px; }
+.navbar li {
+  width: auto;
+}
 
 .navbar a {
-  display: block;
-  padding: 14px 20px;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
+  text-align: left;
 }
 
 .logo { margin-right: 20px; }
