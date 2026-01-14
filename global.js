@@ -1,4 +1,4 @@
-// --- FILTERBAR ---
+// FILTERBAR ---
 const checkboxes = document.querySelectorAll('.filter-sidebar input');
 const cards = document.querySelectorAll('.card');
 
@@ -12,7 +12,7 @@ checkboxes.forEach(cb => {
   });
 });
 
-// --- MODAL Window ---
+// MODAL Window ---
 function renderCartItems() {
     const listContainer = document.getElementById('cartItemsList');
     const cart = JSON.parse(sessionStorage.getItem('nurseryCart')) || [];
@@ -45,7 +45,7 @@ if (closeBtn) {
     };
 }
 
-// --- CART BUTTOn ---
+// CART BUTTOn
 document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', function() {
         const card = this.closest('.card');
@@ -60,7 +60,7 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
     });
 });
 
-// --- CLEAR CART ---
+// CLEAR CART 
 document.addEventListener('click', function(e) {
     if (e.target.classList.contains('clear-cart-btn')) {
         sessionStorage.removeItem('nurseryCart');
@@ -79,7 +79,7 @@ document.addEventListener('click', function(e) {
     }
 });
 
-// --- CONTACT FORMS ---
+// CONTACT FORMS
 document.querySelectorAll('.newsletter-form').forEach(form => {
     form.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -109,7 +109,7 @@ if (contactForm) {
     });
 }
 
-// --- CALENDAR ---
+// CALENDAR
 
 let year = 2026;
 let month = 4;
