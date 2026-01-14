@@ -286,12 +286,24 @@ body {
   justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
-
-  max-width: 2000px;   /* controls the group width */
-  margin: 0 auto;      /* centers the whole group */
 }
+
 .card {
-  width: 380px;
+  width: 300px;
+}
+
+.achievements {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;        /* tighter gaps for this page */
+  flex-wrap: wrap;
+
+  max-width: 1050px;   /* tighter container for this page */
+  margin: 0 auto;
+}
+
+.achievements .card {
+  width: 360px;        /* slightly bigger than shop cards */
 }
 
 
