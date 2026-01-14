@@ -12,7 +12,7 @@ checkboxes.forEach(cb => {
   });
 });
 
-// MODAL Window ---
+// MODAL
 function renderCartItems() {
     const listContainer = document.getElementById('cartItemsList');
     const cart = JSON.parse(sessionStorage.getItem('nurseryCart')) || [];
@@ -45,7 +45,7 @@ if (closeBtn) {
     };
 }
 
-// CART BUTTOn
+// CART BUTTONs
 document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', function() {
         const card = this.closest('.card');
@@ -60,13 +60,16 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
     });
 });
 
-// CLEAR CART 
-document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('clear-cart-btn')) {
+if (e.target.classList.contains('clear-cart-btn')) {
+    let cart = JSON.parse(sessionStorage.getItem('nurseryCart')) || [];
+    if (cart.length === 0) {
+        alert("No items to clear");
+    } else {
         sessionStorage.removeItem('nurseryCart');
         renderCartItems();
         alert("Cart cleared");
     }
+}
     if (e.target.classList.contains('process-order-btn')) {
         if (sessionStorage.getItem('nurseryCart')) {
             sessionStorage.removeItem('nurseryCart');
@@ -79,7 +82,7 @@ document.addEventListener('click', function(e) {
     }
 });
 
-// CONTACT FORMS
+// Contact  forms
 document.addEventListener('submit', function (e) {
   if (e.target.matches('.newsletter-form')) {
     e.preventDefault();
