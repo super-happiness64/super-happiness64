@@ -16,7 +16,7 @@
 }
 
 body {
-  font-family: "Calibri", sans-serif;
+  font-family: "Calibri", Arial, sans-serif;
   background-color: var(--bg-floral);
   line-height: 1.6;
 }
