@@ -1,4 +1,4 @@
-// --- FILTER ---
+// --- FILTERBAR ---
 const checkboxes = document.querySelectorAll('.filter-sidebar input');
 const cards = document.querySelectorAll('.card');
 
