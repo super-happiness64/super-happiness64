@@ -510,7 +510,7 @@ button:hover {
   left: 50%;
   top: -8px;
   transform: translate(-50%, -100%);
-  background: #4B4A1E;
+  background: #9E9481;
   color: white;
   padding: 8px 10px;
   white-space: nowrap;
@@ -524,7 +524,7 @@ button:hover {
   top: -8px;
   transform: translate(-50%, -50%);
   border: 8px solid transparent;
-  border-top-color: #9d352e;
+  border-top-color: #D4CBBA;
 }
 
 /* 7. RESPONSIVE QUERIES */
