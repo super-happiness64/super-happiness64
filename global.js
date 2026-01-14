@@ -1,4 +1,4 @@
-// --- 1. FILTER LOGIC ---
+// --- FILTER ---
 const checkboxes = document.querySelectorAll('.filter-sidebar input');
 const cards = document.querySelectorAll('.card');
 
@@ -12,7 +12,7 @@ checkboxes.forEach(cb => {
   });
 });
 
-// --- 2. MODAL RENDER LOGIC ---
+// --- MODAL Window ---
 function renderCartItems() {
     const listContainer = document.getElementById('cartItemsList');
     const cart = JSON.parse(sessionStorage.getItem('nurseryCart')) || [];
@@ -29,7 +29,6 @@ function renderCartItems() {
     }
 }
 
-// --- 3. MODAL OPEN/CLOSE ---
 const openBtn = document.getElementById('openModalLink');
 if (openBtn) {
     openBtn.onclick = function(e) {
@@ -46,15 +45,13 @@ if (closeBtn) {
     };
 }
 
-// --- 4. ADD TO CART (SAVING TO STORAGE) ---
+// --- CART BUTTOn ---
 document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', function() {
-        // Find the specific card
         const card = this.closest('.card');
         const plantName = card.querySelector('h3').innerText;
         const plantPrice = card.querySelector('.price').innerText;
 
-        // Get current storage, add item, and save back
         let cart = JSON.parse(sessionStorage.getItem('nurseryCart')) || [];
         cart.push({ name: plantName, price: plantPrice });
         sessionStorage.setItem('nurseryCart', JSON.stringify(cart));
@@ -63,7 +60,7 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
     });
 });
 
-// --- 5. CLEAR/PROCESS LOGIC ---
+// --- CLEAR CART ---
 document.addEventListener('click', function(e) {
     if (e.target.classList.contains('clear-cart-btn')) {
         sessionStorage.removeItem('nurseryCart');
@@ -82,8 +79,7 @@ document.addEventListener('click', function(e) {
     }
 });
 
-// --- 6. FORMS & ALERTS ---
-// Footer Subscribe
+// --- CONTACT FORMS ---
 document.querySelectorAll('.newsletter-form').forEach(form => {
     form.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -92,44 +88,38 @@ document.querySelectorAll('.newsletter-form').forEach(form => {
     });
 });
 
-// Contact Form (LocalStorage Requirement)
-// Contact Form (LocalStorage Requirement)
-const contactForm = document.querySelector('.contact-form'); // Ensure your form has this class
+const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Stop the page from reloading
+        e.preventDefault();
         
-        // 1. Gather the data
         const customerData = {
             email: document.getElementById('email')?.value || "No Email",
             phone: document.getElementById('phone')?.value || "No Phone",
-            orderInfo: document.getElementById('custom-option')?.value || "Standard",
+            orderInfo: document.getElementById('custom-option')?.value || "Custom Order",
             comment: document.getElementById('comment')?.value || ""
         };
 
-        // 2. Save to LocalStorage (Permanent memory)
         localStorage.setItem('customerProfile', JSON.stringify(customerData));
 
-        // 3. Confirm with an alert (This is what you're looking for!)
         alert("Thank you for your message. Your information has been saved!");
         
         console.log("Saved to LocalStorage:", customerData);
-        this.reset(); // Clears the form
+        this.reset();
     });
 }
 
-//CALENDAR
+// --- CALENDAR ---
 
 let year = 2026;
-let month = 4; // 0 = Jan, 1 = Feb...
+let month = 4;
 
-// 🌼 Define events by YYYY-MM-DD
 const events = {
-  "2026-05-03": "Community compost day – 2pm",
-  "2026-05-06": "Weeding party – 9am",
-  "2026-05-10": "Children's planting workshop – 11am",
-  "2026-05-21": "Spring seed swap – 1pm",
-  "2026-05-28": "Harvest & potluck – 5pm"
+  "2026-05-03": "Compost Day at 2pm",
+  "2026-05-06": "Weeding party 9am",
+  "2026-05-10": "Workshop at 11am",
+  "2026-05-21": "Seed Swap at 1pm",
+  "2026-05-28": "Potluck at Park! at 5pm"
 };
 
 const calendar = document.getElementById("calendar");
@@ -144,7 +134,6 @@ function renderCalendar() {
   calendar.innerHTML = "";
   title.textContent = `${monthNames[month]} ${year}`;
 
-  // Day names
   ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].forEach(d => {
     const el = document.createElement("div");
     el.className = "day-name";
