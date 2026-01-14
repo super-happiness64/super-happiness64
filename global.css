@@ -466,9 +466,10 @@ body {
 
 button {
   padding: 6px 10px;
-  border: 1px solid #79512e;
+  border: 1px solid #000;
   background: #9d352e;
   cursor: pointer;
+  color: #eee; 
 }
 
 button:hover {
