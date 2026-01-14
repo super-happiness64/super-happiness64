@@ -531,6 +531,12 @@ button:hover {
 /* 7. RESPONSIVE QUERIES */
 @media (max-width: 768px) {
 
+  .logo {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
   /* 1. Navbar Stack */
   .navbar ul {
     flex-direction: column;
@@ -544,6 +550,7 @@ button:hover {
   }
   
   .search-item, .nav-right {
+    align-items: center;
     width: 100%;
     margin-top: 10px;
   }
