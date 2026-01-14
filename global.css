@@ -33,16 +33,19 @@ body {
 }
 
 .navbar ul {
-  flex-direction: row;
+  list-style: none;
+  display: flex;
   align-items: center;
 }
 
-.navbar li {
-  width: auto;
-}
+.navbar li { margin-right: 20px; }
 
 .navbar a {
-  text-align: left;
+  display: block;
+  padding: 14px 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
 }
 
 .logo { margin-right: 20px; }
@@ -626,4 +629,3 @@ button:hover {
   }
 
 }
-
