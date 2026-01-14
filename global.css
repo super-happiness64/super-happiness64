@@ -431,87 +431,6 @@ body {
 }
 
 
-.calendar-wrapper {
-  text-align: center;
-}
-
-.calendar {
-  margin-top: 10px;
-  display: inline-block;
-}
-
-.calendar-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 10px;
-  font-size: 20px;
-}
-
-button {
-  padding: 6px 10px;
-  border: 1px solid #000;
-  background: #9d352e;
-  cursor: pointer;
-  color: #eee; 
-}
-
-button:hover {
-  background: #790d1d;
-}
-.calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 10px;
-  padding: 20px;
-  min-width: 1000px;
-}
-
-.day-name {
-  font-weight: bold;
-  text-align: center;
-}
-
-.day {
-  position: relative;
-  height: 55px;
-  border: 1px solid #ccc;
-  text-align: right;
-  padding: 6px;
-  background: #fafdfa;
-}
-
-.day.event {
-  background: #EBE9A2;
-  border-color: #4b4a1e;
-  cursor: pointer;
-}
-
-/* event tooltip */
-.day.event:hover::after {
-  content: attr(data-event);
-  position: absolute;
-  left: 50%;
-  top: -8px;
-  transform: translate(-50%, -100%);
-  background: #4B4A1E;
-  color: white;
-  padding: 8px 10px;
-  white-space: nowrap;
-  z-index: 10;
-}
-
-.day.event:hover::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -8px;
-  transform: translate(-50%, -50%);
-  border: 8px solid transparent;
-  border-top-color: #9d352e;
-}
-
 @media (min-width: 769px) {
   .filter-sidebar {
     position: sticky;
@@ -522,8 +441,6 @@ button:hover {
 @media (max-width: 768px) {
   .about-section, .shop-layout, .event-card { flex-direction: column;
   display: block; } 
-  .calendar-grid { 
-    min-width: auto; overflow-x: scroll; } 
   .newsletter-form input[type="email"] {
     width: 100%; } 
 
